@@ -94,3 +94,39 @@
 
 # <문제 3>
 # 내 풀이
+# str1=input()
+# num=0
+# s=0
+# l=[]
+# for i in range(len(str1)):
+#     if str1[i]>='A' and str1[i]<='Z':
+#         l.append(str1)
+#     else:
+#         num=int(str1[i])
+#         s+=num
+# l.sort()
+# print(l+str(s))
+# I don't know
+
+# 해설
+data=input()
+result=[]
+value=0
+# 문자를 하나씩 확인하며
+for x in data:
+    if x.isalpha():
+        # 알파벳인 경우 결과 리스트에 삽입
+        result.append(x)
+    # 숫자는 따로 더하기
+    else:
+        value+=int(x)    
+# 알파벳을 오름차순으로 정렬
+result.sort()
+# 숫자가 하나라도 존재하는 경우, 가장 뒤에 삽입
+if value!=0:
+    result.append(str(value))
+print(''.join(result)) # ''.join(list)는 리스트에 문자열로 변경이 가능하다.
+
+# 잊고 있던 함수가 많다.
+# 한 번씩 봐주고 상기시키는 것이 중요하다.
+# 리스트와 문자열은 유사하다.
