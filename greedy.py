@@ -38,8 +38,26 @@
 # n,k가 10만 이하의 수이기 때문에
 # 다만, 위와 같이 작성을 하면 반복문이 한번 반복이 될 때마다 n이 기하급수적으로 감소한다.
 
+# str=input()
+# result=0
+# for i in str:
+#     if i=='0' or i=='1':
+#         result+=int(i)
+#     else:
+#         if (i-1)=='0' or (i-1)=='1':
+#             result+=int(i-1)
+#         result*=int(i)
+# print(result)
+
+# data=input()
+# result=int(data[0])
+# for i in range(1,len(data)):
+#     num=int(data[i])
+#     if num<=1 or result<=1:
+#         result+=num
+#     else:
+#         result*=num
+# print(result)
+
 str=input()
-result=0
-
-
-print(result)
+print(str[0])
