@@ -63,7 +63,6 @@
 # print(result)
 
 #<문제 3>
-# 내 풀이
 n=int(input())
 data=list(map(int,input().split()))
 data.sort()
