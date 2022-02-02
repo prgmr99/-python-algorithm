@@ -38,6 +38,8 @@
 # n,k가 10만 이하의 수이기 때문에
 # 다만, 위와 같이 작성을 하면 반복문이 한번 반복이 될 때마다 n이 기하급수적으로 감소한다.
 
+#<문제 2>
+# 내 풀이
 # str=input()
 # result=0
 # for i in str:
@@ -49,6 +51,7 @@
 #         result*=int(i)
 # print(result)
 
+# 해설
 # data=input()
 # result=int(data[0])
 # for i in range(1,len(data)):
@@ -59,5 +62,16 @@
 #         result*=num
 # print(result)
 
-str=input()
-print(str[0])
+#<문제 3>
+# 내 풀이
+n=int(input())
+data=list(map(int,input().split()))
+data.sort()
+result=0
+count=0
+for i in data:
+    count+=1
+    if count>=i:
+        result+=1
+        count=0
+print(result)
