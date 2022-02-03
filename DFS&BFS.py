@@ -164,3 +164,8 @@
 # 중복이 되지 않은 것만 True를 반환해 결국 한 덩어리가 result+=1을 하는 꼴이 된다.
 
 # <문제 2>
+n,m=map(int,input().split())
+miro=[]
+for i in range(n):
+    miro.append(list(map(int,input())))
+result=0
