@@ -135,5 +135,32 @@
 # bfs(graph,1,visited)
 
 # <문제 1>
-# 내 풀이
-n,m=int(input().split())
+# 해설
+# def dfs(x,y):
+#     if x<=-1 or x>=n or y<=-1 or y>=m:
+#         return False
+#     if graph[x][y]==0:
+#         graph[x][y]==1  # 이렇게 해야 다음 노드로 이동하고 이번 노드에 다시 왔을 때 한번 더 실행하지 않는다.
+#         dfs(x-1,y)
+#         dfs(x,y-1)
+#         dfs(x+1,y)
+#         dfs(x,y+1)
+#         return True
+#     return False
+
+# n,m=map(int,input().split())
+# graph=[]
+# for i in range(n):
+#     graph.append(list(map(int,input())))
+
+# result=0
+# for i in range(n):
+#     for j in range(m):
+#         if dfs(i,j)==True:
+#             result+=1   # 해당 노드에 처음 방문했을 때만 값 추가.
+# print(result)
+# 여기서는 인덱스와 노드 번호를 맞출 필요가 없었다.
+# dfs함수를 계속 실행하면서 중복됐던 것들은 모두 False로 변하고 마지막에
+# 중복이 되지 않은 것만 True를 반환해 결국 한 덩어리가 result+=1을 하는 꼴이 된다.
+
+# <문제 2>
