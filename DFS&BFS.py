@@ -136,28 +136,28 @@
 
 # <문제 1>
 # 해설
-def dfs(x,y):
-    if x<=-1 or x>=n or y<=-1 or y>=m:
-        return False
-    if graph[x][y]==0:
-        graph[x][y]==1  # 이렇게 해야 다음 노드로 이동하고 이번 노드에 다시 왔을 때 한번 더 실행하지 않는다.
-        dfs(x-1,y)
-        dfs(x,y-1)
-        dfs(x+1,y)
-        dfs(x,y+1)
-        return True
-    return False
+# def dfs(x,y):
+#     if x<=-1 or x>=n or y<=-1 or y>=m:
+#         return False
+#     if graph[x][y]==0:
+#         graph[x][y]=1  # 이렇게 해야 다음 노드로 이동하고 이번 노드에 다시 왔을 때 한번 더 실행하지 않는다.
+#         dfs(x-1,y)
+#         dfs(x,y-1)
+#         dfs(x+1,y)
+#         dfs(x,y+1)
+#         return True
+#     return False
 
-n,m=map(int,input().split())
-graph=[]
-for i in range(n):
-    graph.append(list(map(int,input())))
+# n,m=map(int,input().split())
+# graph=[]
+# for i in range(n):
+#     graph.append(list(map(int,input())))
 
-result=0
-for i in range(n):
-    for j in range(m):
-        if dfs(i,j)==True:
-            result+=1   # 해당 노드에 처음 방문했을 때만 값 추가.
+# result=0
+# for i in range(n):
+#     for j in range(m):
+#         if dfs(i,j)==True:
+#             result+=1   # 해당 노드에 처음 방문했을 때만 값 추가.
 # print(result)
 # 여기서는 인덱스와 노드 번호를 맞출 필요가 없었다.
 # dfs함수를 계속 실행하면서 중복됐던 것들은 모두 False로 변하고 마지막에
@@ -191,7 +191,7 @@ for i in range(n):
 from collections import deque
 def bfs(x,y):
     queue=deque()
-    queue.append((x,y))
+    queue.append((x,y)) # 튜플 데이터를 담는다.
     while queue:
         x,y=queue.popleft()
         for i in range(4):
@@ -213,4 +213,56 @@ for i in range(n):
     miro.append(list(map(int,input())))
 dx=[-1,1,0,0]
 dy=[0,0,-1,1]
+print(bfs(0,0))
+
+# def dfs(x,y):
+#     if x<=-1 or x>n or y<=-1 or y>m:
+#         return False
+#     if graph[x][y]==0:
+#         graph[x][y]=1
+#         dfs(x-1,y)
+#         dfs(x+1,y)
+#         dfs(x,y-1)
+#         dfs(x,y+1)
+#         return True
+#     return False
+
+
+# n,m=map(int,input().split())
+# graph=[]
+# for i in range(n):
+#     graph.append(list(map(int,input())))
+# result=0
+# for i in range(n):
+#     for j in range(m):
+#         if dfs(i,j)==True:
+#             result+=1
+# print(result)
+
+from collections import deque
+
+def bfs(x,y):
+    queue=deque()
+    queue.append((x,y))
+    
+    while queue:
+        x,y=queue.popleft()
+        for i in range(4):
+            nx=x+dx[i]
+            ny=y+dy[i]
+            if x<0 or x>n or y<0 or y>m:
+                continue
+            if graph[nx][ny]==0:
+                continue
+            if graph[nx][ny]==1:
+                graph[nx][ny]=graph[x][y]+1
+                queue.append(nx,ny)
+    return graph[n-1][m-1]
+
+n,m=map(int,input().split())
+graph=[]
+for i in range(n):
+    graph.append(list(map(int,input())))
+dx=[0,0,1,-1]
+dy=[-1,1,0,0]
 print(bfs(0,0))
